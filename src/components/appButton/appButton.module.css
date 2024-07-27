@@ -1,0 +1,40 @@
+.appButton {
+    border: solid rgb(107, 99, 181) 4px;
+    background-color: transparent;
+}
+
+.buttonInner, .buttonInnerActive {
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--white-text);
+    font-weight: 600;
+    font-size: 13px;
+    padding: 0.6rem;
+}
+
+.appButton:hover .buttonInner {
+    background-color: rgba(107, 99, 181, 0.6);
+}
+
+
+.buttonInnerActive {
+    background-color: rgba(107, 99, 181, 1);
+}
+
+
+@media only screen and (min-width: 768px) {
+    .buttonInner, .buttonInnerActive {
+        font-size: 15px;
+        padding: 0.75rem;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .buttonInner, .buttonInnerActive {
+        font-size: 17px;
+        padding: 0.75rem;
+    }
+}

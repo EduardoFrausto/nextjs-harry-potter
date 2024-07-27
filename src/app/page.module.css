@@ -10,5 +10,18 @@
 .headerTitle {
     color: var(--white-text);
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 18px;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .headerTitle {
+        font-size: 27px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .headerTitle {
+        font-size: 36px;
+    }
 }
