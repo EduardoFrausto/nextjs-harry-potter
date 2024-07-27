@@ -1,0 +1,14 @@
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+    gap: 2rem;
+}
+
+.headerTitle {
+    color: var(--white-text);
+    font-weight: 700;
+    font-size: 2rem;
+}
