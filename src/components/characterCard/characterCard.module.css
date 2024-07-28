@@ -1,0 +1,210 @@
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: stretch;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.imageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.image {
+    width: 69px;
+    height: 69px;
+    border-radius: 100px;
+}
+
+.gryffindorGradient {
+    background: linear-gradient(135deg, #FF0000 4.67%, #FED482 96.97%);
+}
+
+.gryffindorHufflepuff {
+    background: linear-gradient(135deg, #FFC700 0%, #FFF388 100%);
+}
+
+.gryffindorRavenclaw {
+    background: linear-gradient(135deg, #0597B7 0%, #66D1FF 100%);
+}
+
+.gryffindorSlytherin {
+    background: linear-gradient(135deg, #1C792B 0%, #82E95E 100%);
+}
+
+.dataContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 0.5rem;
+}
+
+.dataContainerNotAlive {
+    background-color: rgba(204, 204, 204, 1);
+}
+
+.name {
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+}
+
+.mobileCharacterStatusColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.characterStatus {
+    font-weight: 600;
+    font-size: 11px;
+    text-align: left;
+    color: rgba(153, 153, 153, 1);
+}
+
+.characterStatusSeparator {
+    margin: 0 0.25rem;
+}
+
+.invisibleButton {
+    background-color: transparent;
+    border: solid transparent 0;
+    cursor: pointer;
+}
+
+
+.mobileCharacterInfoRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.desktopCharacterInfoRow {
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.desktopCharacterStatusRow {
+    display: none;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+}
+
+.desktopCharacterDetailsColumn {
+    display: none;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 0.25rem;
+}
+
+.desktopCharacterDetailRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.desktopCharacterDetailLabel {
+    font-weight: 600;
+    font-size: 18px;
+    margin-right: 0.25rem;
+    color: rgba(55, 74, 89, 1);
+}
+
+.desktopCharacterDetailValue {
+    font-weight: 400;
+    font-size: 18px;
+    color: rgba(55, 74, 89, 1);
+    text-overflow: ellipsis;
+}
+
+@media only screen and (min-width: 768px) {
+    .imageContainer {
+        padding: 1.25rem;
+    }
+
+    .image {
+        width: 117px;
+        height: 117px;
+        border-radius: 150px;
+    }
+
+    .dataContainer {
+        padding: 0.75rem;
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+
+    .name {
+        font-size: 24px;
+    }
+
+    .mobileCharacterInfoRow {
+        gap: 0.75rem;
+    }
+
+    .characterStatus {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .cardContainer {
+        flex-direction: row;
+    }
+
+    .imageContainer {
+        padding: 1.5rem;
+    }
+
+    .image {
+        width: 165px;
+        height: 165px;
+        border-radius: 200px;
+    }
+
+    .dataContainer {
+        padding: 1rem;
+
+    }
+
+    .name {
+        font-size: 30px;
+        text-align: left;
+        margin: 1rem 0;
+    }
+
+    .mobileCharacterInfoRow {
+        display: none;
+    }
+
+    .characterStatus {
+        font-size: 14px;
+    }
+
+    .desktopCharacterInfoRow {
+        display: flex;
+    }
+
+    .desktopCharacterStatusRow {
+        display: flex;
+    }
+
+    .desktopCharacterDetailsColumn {
+        display: flex;
+    }
+}
