@@ -1,0 +1,30 @@
+
+.characterListContainer {
+    --spaceBetween: 3.33%;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: var(--spaceBetween);
+    padding: 0 var(--spaceBetween);
+    grid-row-gap: 1rem;
+    margin-top: 3rem;
+    grid-auto-rows: 1fr;
+}
+
+.characterCard {
+}
+
+@media only screen and (min-width: 768px) {
+    .characterListContainer {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .characterListContainer {
+        max-width: 1500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

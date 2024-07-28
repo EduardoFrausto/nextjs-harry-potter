@@ -9,6 +9,7 @@ interface CharacterSliceInitialState {
 
     characters: Character[]
     _page: number
+    totalPages: number
     loadingCharacter: boolean
 }
 
@@ -18,6 +19,7 @@ const initialState: CharacterSliceInitialState = {
 
     characters: [],
     _page: 1,
+    totalPages: 1,
     loadingCharacter: false
 };
 
@@ -47,6 +49,7 @@ const characterSlice = createSlice({
                     state.characters = [...state.characters, ...action.payload.data]
                 }
                 state._page = action.payload.next ? action.payload.next : state._page + 1
+                state.totalPages = action.payload.pages
             } else {
                 alert('Ocurrió un error inesperado al consultar los personajes')
             }

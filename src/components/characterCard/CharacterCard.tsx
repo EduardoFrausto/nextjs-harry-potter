@@ -1,4 +1,4 @@
-import {HTMLAttributes, memo, useMemo} from "react";
+import React, {HTMLAttributes, memo, useMemo} from "react";
 import styles from './characterCard.module.css'
 import {Houses} from "@/models/houses";
 import Image from "next/image";
@@ -36,13 +36,13 @@ const CharacterCard = memo<CharacterCardProps>(function CharacterCard(
             case Houses.Gryffindor:
                 return styles.gryffindorGradient
             case Houses.Hufflepuff:
-                return styles.gryffindorHufflepuff
+                return styles.hufflepuffGradient
             case Houses.Ravenclaw:
-                return styles.gryffindorRavenclaw
+                return styles.ravenclawGradient
             case Houses.Slytherin:
-                return styles.gryffindorSlytherin
+                return styles.slytherinGradient
             default:
-                return ''
+                return styles.noHouseGradient
         }
     }, [house])
 
@@ -51,9 +51,8 @@ const CharacterCard = memo<CharacterCardProps>(function CharacterCard(
     }, [alive])
 
     const hogwartsStatus = useMemo(() => {
-        return hogwartsStudent ? 'ESTUDIANTE' : hogwartsStaff ? 'STAFF' : ''
+        return hogwartsStudent ? 'ESTUDIANTE' : hogwartsStaff ? 'STAFF' : 'OTRO'
     }, [hogwartsStaff, hogwartsStudent])
-
 
     return (
         <div className={cardClasses}>

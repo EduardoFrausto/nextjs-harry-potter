@@ -1,7 +1,7 @@
 .cardContainer {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: stretch;
     border-radius: 5px;
     overflow: hidden;
@@ -25,24 +25,30 @@
     background: linear-gradient(135deg, #FF0000 4.67%, #FED482 96.97%);
 }
 
-.gryffindorHufflepuff {
+.hufflepuffGradient {
     background: linear-gradient(135deg, #FFC700 0%, #FFF388 100%);
 }
 
-.gryffindorRavenclaw {
+.ravenclawGradient {
     background: linear-gradient(135deg, #0597B7 0%, #66D1FF 100%);
 }
 
-.gryffindorSlytherin {
+.slytherinGradient {
     background: linear-gradient(135deg, #1C792B 0%, #82E95E 100%);
+}
+
+.noHouseGradient {
+    background: white;
 }
 
 .dataContainer {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     background-color: rgba(255, 255, 255, 1);
     padding: 0.5rem;
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
 .dataContainerNotAlive {
@@ -58,8 +64,8 @@
 .mobileCharacterStatusColumn {
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: start;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .characterStatus {
@@ -86,6 +92,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 0.25rem;
+    margin-top: auto;
 }
 
 .desktopCharacterInfoRow {
@@ -99,23 +106,23 @@
 .desktopCharacterStatusRow {
     display: none;
     flex-direction: row;
-    justify-content: start;
-    align-items: start;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .desktopCharacterDetailsColumn {
     display: none;
     flex-direction: column;
-    justify-content: start;
-    align-items: start;
+    justify-content: flex-start;
+    align-items: flex-start;
     gap: 0.25rem;
 }
 
 .desktopCharacterDetailRow {
     display: flex;
     flex-direction: row;
-    justify-content: start;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .desktopCharacterDetailLabel {
@@ -145,8 +152,6 @@
 
     .dataContainer {
         padding: 0.75rem;
-        flex-grow: 1;
-        flex-shrink: 1;
     }
 
     .name {
@@ -179,7 +184,6 @@
 
     .dataContainer {
         padding: 1rem;
-
     }
 
     .name {
