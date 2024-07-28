@@ -7,7 +7,8 @@ import Filters from "@/components/filters/Filters";
 import {useEffect} from "react";
 import {useAppDispatch} from "@/redux/app/hooks";
 import {getCharactersByPage} from "@/redux/features/characterSlice";
-import CharacterList from "@/components/CharactersList/CharacterList";
+import CharacterList from "@/components/charactersList/CharacterList";
+import FavoritesMenu from "@/components/favoritesMenu/FavoritesMenu";
 
 export default function Home() {
     const dispatch = useAppDispatch()
@@ -17,7 +18,7 @@ export default function Home() {
     }, [dispatch])
 
     return (
-        <main>
+        <main className={styles.mainContainer}>
             <BackgroundImage/>
             <div className={styles.headerContainer}>
                 <Image src={logo} alt={'Harry Potter Logo'}/>
@@ -25,6 +26,7 @@ export default function Home() {
             </div>
             <Filters/>
             <CharacterList/>
+            <FavoritesMenu/>
         </main>
     );
 }

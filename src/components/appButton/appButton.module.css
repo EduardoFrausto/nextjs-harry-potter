@@ -1,6 +1,7 @@
 .appButton {
-    border: solid rgb(107, 99, 181) 4px;
+    border: solid var(--purple) 4px;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .buttonInner, .buttonInnerActive {
@@ -21,7 +22,7 @@
 
 
 .buttonInnerActive {
-    background-color: rgba(107, 99, 181, 1);
+    background-color: var(--purple);
 }
 
 

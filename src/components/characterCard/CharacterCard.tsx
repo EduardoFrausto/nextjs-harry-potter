@@ -6,6 +6,8 @@ import Image from "next/image";
 import flagEmpty from '../../../public/svg/flagEmpty.svg';
 import flagFill from '../../../public/svg/flagFill.svg';
 import {stringToCapitalCase} from "@/helpers/stringFormatters";
+import {useAppDispatch} from "@/redux/app/hooks";
+import {updateCharacterFavoriteStatus} from "@/redux/features/characterSlice";
 
 const CharacterCard = memo<CharacterCardProps>(function CharacterCard(
     {
@@ -20,9 +22,12 @@ const CharacterCard = memo<CharacterCardProps>(function CharacterCard(
         hogwartsStaff,
         hogwartsStudent,
         house,
-        isFavorite
+        isFavorite,
+        id,
     }
 ) {
+    const dispatch = useAppDispatch();
+
     const cardClasses = useMemo(() => {
         const classes: string[] = [styles.cardContainer]
         if (className) {
@@ -54,6 +59,10 @@ const CharacterCard = memo<CharacterCardProps>(function CharacterCard(
         return hogwartsStudent ? 'ESTUDIANTE' : hogwartsStaff ? 'STAFF' : 'OTRO'
     }, [hogwartsStaff, hogwartsStudent])
 
+    const toggleFavoriteHandler = () => {
+        dispatch(updateCharacterFavoriteStatus({isFavorite: !isFavorite, id, isFromFavorites: false}))
+    }
+
     return (
         <div className={cardClasses}>
             <div className={[styles.imageContainer, gradientClassName].join(' ')}>
@@ -66,7 +75,7 @@ const CharacterCard = memo<CharacterCardProps>(function CharacterCard(
                         <span className={[styles.characterStatus, styles.characterStatusSeparator].join(' ')}> / </span>
                         <span className={styles.characterStatus}>{hogwartsStatus}</span>
                     </div>
-                    <button className={styles.invisibleButton}>
+                    <button className={styles.invisibleButton} onClick={toggleFavoriteHandler}>
                         <Image src={isFavorite ? flagFill : flagEmpty} alt={'Favorite icon'}/>
                     </button>
                 </div>
@@ -76,7 +85,7 @@ const CharacterCard = memo<CharacterCardProps>(function CharacterCard(
                         <span className={styles.characterStatus}>{aliveStatus}</span>
                         <span className={styles.characterStatus}>{hogwartsStatus}</span>
                     </div>
-                    <button className={styles.invisibleButton}>
+                    <button className={styles.invisibleButton} onClick={toggleFavoriteHandler}>
                         <Image src={isFavorite ? flagFill : flagEmpty} alt={'Favorite icon'}/>
                     </button>
                 </div>
@@ -116,6 +125,7 @@ type CharacterCardProps = {
     hairColour: string
     house: Houses
     isFavorite?: boolean
+    id: string
 }
 
 export default CharacterCard

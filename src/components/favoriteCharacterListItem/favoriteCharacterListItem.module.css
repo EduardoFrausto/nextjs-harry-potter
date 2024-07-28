@@ -1,0 +1,40 @@
+.favoriteCharacterContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--dark-purple);
+}
+
+.favoriteCharacterNoBorderContainer {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.image {
+    width: 34px;
+    height: 34px;
+    border-radius: 50px;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white-text);
+}
+
+.deleteButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background-color: transparent;
+    margin-left: auto;
+    cursor: pointer;
+    padding: 0.25rem;
+}

@@ -11,6 +11,11 @@ interface CharacterSliceInitialState {
     _page: number
     totalPages: number
     loadingCharacter: boolean
+
+    favoriteCharacters: Character[]
+    loadingFavoriteCharacter: boolean
+
+    loadingUpdateCharacter: boolean
 }
 
 const initialState: CharacterSliceInitialState = {
@@ -20,7 +25,12 @@ const initialState: CharacterSliceInitialState = {
     characters: [],
     _page: 1,
     totalPages: 1,
-    loadingCharacter: false
+    loadingCharacter: false,
+
+    favoriteCharacters: [],
+    loadingFavoriteCharacter: false,
+
+    loadingUpdateCharacter: false,
 };
 
 const characterSlice = createSlice({
@@ -58,6 +68,49 @@ const characterSlice = createSlice({
             state.loadingCharacter = false
             alert('Ocurrió un error inesperado al consultar los personajes')
         })
+
+        builder.addCase(getFavoriteCharacters.pending, state => {
+            state.loadingFavoriteCharacter = true
+        })
+        builder.addCase(getFavoriteCharacters.fulfilled, (state, action) => {
+            state.loadingFavoriteCharacter = false
+            if (action.payload) {
+                state.favoriteCharacters = action.payload
+            } else {
+                alert('Ocurrió un error inesperado al consultar los personajes favoritos')
+            }
+        })
+        builder.addCase(getFavoriteCharacters.rejected, state => {
+            state.loadingFavoriteCharacter = false
+            alert('Ocurrió un error inesperado al consultar los personajes favoritos')
+        })
+
+        builder.addCase(updateCharacterFavoriteStatus.pending, state => {
+            state.loadingUpdateCharacter = true
+        })
+        builder.addCase(updateCharacterFavoriteStatus.fulfilled, (state, action) => {
+            state.loadingUpdateCharacter = false
+            const payload = action.payload
+            if (payload === 500) {
+                alert('Ocurrió un error inesperado al actualizar el personaje')
+            }
+            if (payload === 501) {
+                alert('No se pueden tener más de 5 personajes favoritos')
+            }
+            if (typeof payload === 'object' && typeof payload !== null) {
+                const characterIndex = state.characters.findIndex(tmp => tmp.id === payload.id)
+                state.characters[characterIndex] = payload;
+                if (payload.isFavorite) {
+                    state.favoriteCharacters.push(payload)
+                } else {
+                    state.favoriteCharacters = state.favoriteCharacters.filter(tmp => tmp.id !== payload.id)
+                }
+            }
+        })
+        builder.addCase(updateCharacterFavoriteStatus.rejected, state => {
+            state.loadingUpdateCharacter = false
+            alert('Ocurrió un error inesperado al actualizar el personaje')
+        })
     },
 });
 
@@ -87,9 +140,46 @@ const getCharactersByPage = createAsyncThunk(
     }
 )
 
+const getFavoriteCharacters = createAsyncThunk(
+    'characterSlice/getFavoriteCharacters',
+    async () => {
+        try {
+            const params = {isFavorite: true}
+            const response = await httpClient.get<Character[]>('/characters', {params})
+            return response.data
+        } catch (e) {
+            return null
+        }
+    }
+)
+
+const updateCharacterFavoriteStatus = createAsyncThunk(
+    'characterSlice/updateCharacterFavoriteStatus',
+    async (data: { id: string, isFavorite: boolean, isFromFavorites: boolean }, {getState}) => {
+        try {
+            const {characterSlice: state} = getState() as RootState;
+            const {id, isFromFavorites, isFavorite} = data;
+            let characterTmp: Character | undefined = undefined
+            characterTmp = (isFromFavorites ? state.favoriteCharacters : state.characters).find(tmp => tmp.id === id)
+            if (!characterTmp) {
+                return 500
+            }
+            characterTmp = {...characterTmp}
+            characterTmp.isFavorite = isFavorite
+            if (isFavorite && state.favoriteCharacters.length >= 5) {
+                return 501
+            }
+            const response = await httpClient.put<Character>(`/characters/${id}`, characterTmp)
+            return response.data
+        } catch (e) {
+            return 500
+        }
+    }
+)
+
 
 export const {setFetchStaffCharacters, setFetchStudentsCharacters} = characterSlice.actions;
 
 export default characterSlice.reducer;
 
-export {getCharactersByPage};
+export {getCharactersByPage, getFavoriteCharacters, updateCharacterFavoriteStatus};

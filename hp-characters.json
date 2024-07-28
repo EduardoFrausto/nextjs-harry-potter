@@ -20,7 +20,9 @@
       "hogwartsStaff": false,
       "actor": "Daniel Radcliffe",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/harry.jpg"
+      "image": "http://hp-api.herokuapp.com/images/harry.jpg",
+      "isFavorite": true,
+      "id": "3b8f"
     },
     {
       "name": "Hermione Granger",
@@ -42,7 +44,9 @@
       "hogwartsStaff": false,
       "actor": "Emma Watson",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/hermione.jpeg"
+      "image": "http://hp-api.herokuapp.com/images/hermione.jpeg",
+      "isFavorite": true,
+      "id": "1bc2"
     },
     {
       "name": "Ron Weasley",
@@ -64,7 +68,9 @@
       "hogwartsStaff": false,
       "actor": "Rupert Grint",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/ron.jpg"
+      "image": "http://hp-api.herokuapp.com/images/ron.jpg",
+      "isFavorite": true,
+      "id": "9d59"
     },
     {
       "name": "Draco Malfoy",
@@ -86,7 +92,9 @@
       "hogwartsStaff": false,
       "actor": "Tom Felton",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/draco.jpg"
+      "image": "http://hp-api.herokuapp.com/images/draco.jpg",
+      "isFavorite": true,
+      "id": "1b8e"
     },
     {
       "name": "Minerva McGonagall",
@@ -108,7 +116,9 @@
       "hogwartsStaff": true,
       "actor": "Dame Maggie Smith",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/mcgonagall.jpg"
+      "image": "http://hp-api.herokuapp.com/images/mcgonagall.jpg",
+      "isFavorite": false,
+      "id": "f3e0"
     },
     {
       "name": "Cedric Diggory",
@@ -130,7 +140,9 @@
       "hogwartsStaff": false,
       "actor": "Robert Pattinson",
       "alive": false,
-      "image": "http://hp-api.herokuapp.com/images/cedric.png"
+      "image": "http://hp-api.herokuapp.com/images/cedric.png",
+      "isFavorite": true,
+      "id": "b3e1"
     },
     {
       "name": "Cho Chang",
@@ -152,7 +164,9 @@
       "hogwartsStaff": false,
       "actor": "Katie Leung",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/cho.jpg"
+      "image": "http://hp-api.herokuapp.com/images/cho.jpg",
+      "isFavorite": false,
+      "id": "d351"
     },
     {
       "name": "Severus Snape",
@@ -174,7 +188,9 @@
       "hogwartsStaff": true,
       "actor": "Alan Rickman",
       "alive": false,
-      "image": "http://hp-api.herokuapp.com/images/snape.jpg"
+      "image": "http://hp-api.herokuapp.com/images/snape.jpg",
+      "isFavorite": false,
+      "id": "34cc"
     },
     {
       "name": "Rubeus Hagrid",
@@ -196,7 +212,9 @@
       "hogwartsStaff": true,
       "actor": "Robbie Coltrane",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/hagrid.png"
+      "image": "http://hp-api.herokuapp.com/images/hagrid.png",
+      "isFavorite": false,
+      "id": "a4aa"
     },
     {
       "name": "Neville Longbottom",
@@ -218,7 +236,9 @@
       "hogwartsStaff": false,
       "actor": "Matthew Lewis",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/neville.jpg"
+      "image": "http://hp-api.herokuapp.com/images/neville.jpg",
+      "isFavorite": false,
+      "id": "476e"
     },
     {
       "name": "Luna Lovegood",
@@ -240,7 +260,9 @@
       "hogwartsStaff": false,
       "actor": "Evanna Lynch",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/luna.jpg"
+      "image": "http://hp-api.herokuapp.com/images/luna.jpg",
+      "isFavorite": false,
+      "id": "30a2"
     },
     {
       "name": "Ginny Weasley",
@@ -262,7 +284,9 @@
       "hogwartsStaff": false,
       "actor": "Bonnie Wright",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/ginny.jpg"
+      "image": "http://hp-api.herokuapp.com/images/ginny.jpg",
+      "isFavorite": false,
+      "id": "ab00"
     },
     {
       "name": "Sirius Black",
@@ -284,7 +308,9 @@
       "hogwartsStaff": false,
       "actor": "Gary Oldman",
       "alive": false,
-      "image": "http://hp-api.herokuapp.com/images/sirius.JPG"
+      "image": "http://hp-api.herokuapp.com/images/sirius.JPG",
+      "isFavorite": false,
+      "id": "9c9b"
     },
     {
       "name": "Remus Lupin",
@@ -306,7 +332,9 @@
       "hogwartsStaff": true,
       "actor": "David Thewlis",
       "alive": false,
-      "image": "http://hp-api.herokuapp.com/images/lupin.jpg"
+      "image": "http://hp-api.herokuapp.com/images/lupin.jpg",
+      "isFavorite": false,
+      "id": "c0b3"
     },
     {
       "name": "Arthur Weasley",
@@ -328,7 +356,9 @@
       "hogwartsStaff": false,
       "actor": "Mark Williams",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/arthur.jpg"
+      "image": "http://hp-api.herokuapp.com/images/arthur.jpg",
+      "isFavorite": false,
+      "id": "58ba"
     },
     {
       "name": "Bellatrix Lestrange",
@@ -350,7 +380,9 @@
       "hogwartsStaff": false,
       "actor": "Helena Bonham Carter",
       "alive": false,
-      "image": "http://hp-api.herokuapp.com/images/bellatrix.jpg"
+      "image": "http://hp-api.herokuapp.com/images/bellatrix.jpg",
+      "isFavorite": false,
+      "id": "0021"
     },
     {
       "name": "Lord Voldemort",
@@ -372,7 +404,9 @@
       "hogwartsStaff": false,
       "actor": "Ralph Fiennes",
       "alive": false,
-      "image": "http://hp-api.herokuapp.com/images/voldemort.jpg"
+      "image": "http://hp-api.herokuapp.com/images/voldemort.jpg",
+      "isFavorite": false,
+      "id": "a8f4"
     },
     {
       "name": "Horace Slughorn",
@@ -394,7 +428,9 @@
       "hogwartsStaff": true,
       "actor": "Jim Broadbent",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/slughorn.JPG"
+      "image": "http://hp-api.herokuapp.com/images/slughorn.JPG",
+      "isFavorite": false,
+      "id": "6543"
     },
     {
       "name": "Kingsley Shacklebolt",
@@ -416,7 +452,9 @@
       "hogwartsStaff": false,
       "actor": "George Harris",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/kingsley.jpg"
+      "image": "http://hp-api.herokuapp.com/images/kingsley.jpg",
+      "isFavorite": false,
+      "id": "19bd"
     },
     {
       "name": "Dolores Umbridge",
@@ -438,7 +476,9 @@
       "hogwartsStaff": true,
       "actor": "Imelda Staunton",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/umbridge.jpg"
+      "image": "http://hp-api.herokuapp.com/images/umbridge.jpg",
+      "isFavorite": false,
+      "id": "5ac6"
     },
     {
       "name": "Lucius Malfoy",
@@ -460,7 +500,9 @@
       "hogwartsStaff": false,
       "actor": "Jason Isaacs",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/lucius.jpg"
+      "image": "http://hp-api.herokuapp.com/images/lucius.jpg",
+      "isFavorite": false,
+      "id": "9835"
     },
     {
       "name": "Vincent Crabbe",
@@ -482,7 +524,9 @@
       "hogwartsStaff": false,
       "actor": "Jamie Waylett",
       "alive": false,
-      "image": "http://hp-api.herokuapp.com/images/crabbe.jpg"
+      "image": "http://hp-api.herokuapp.com/images/crabbe.jpg",
+      "isFavorite": false,
+      "id": "cbd5"
     },
     {
       "name": "Gregory Goyle",
@@ -504,7 +548,9 @@
       "hogwartsStaff": false,
       "actor": "Josh Herdman",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/goyle.jpg"
+      "image": "http://hp-api.herokuapp.com/images/goyle.jpg",
+      "isFavorite": false,
+      "id": "d62b"
     },
     {
       "name": "Mrs Norris",
@@ -526,7 +572,9 @@
       "hogwartsStaff": true,
       "actor": "Maxime, Alanis and Tommy the cats",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/norris.JPG"
+      "image": "http://hp-api.herokuapp.com/images/norris.JPG",
+      "isFavorite": false,
+      "id": "dfc6"
     },
     {
       "name": "Argus Filch",
@@ -548,7 +596,9 @@
       "hogwartsStaff": true,
       "actor": "David Bradley",
       "alive": true,
-      "image": "http://hp-api.herokuapp.com/images/filch.jpg"
+      "image": "http://hp-api.herokuapp.com/images/filch.jpg",
+      "isFavorite": false,
+      "id": "3a91"
     }
   ]
 }

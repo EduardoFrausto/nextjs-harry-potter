@@ -45,7 +45,8 @@ const CharacterList: FC = () => {
                     eyeColour={character.eyeColour}
                     hairColour={character.hairColour}
                     house={character.house}
-                    isFavorite={false}
+                    isFavorite={character.isFavorite}
+                    id={character.id}
                 />
             ))}
         </div>
