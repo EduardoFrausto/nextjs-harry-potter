@@ -1,0 +1,31 @@
+.filtersContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.filterButton {
+    width: 45%;
+}
+
+@media only screen and (min-width: 768px) {
+    .filtersContainer {
+        margin-top: 4rem;
+    }
+
+    .filterButton {
+        width: 30%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .filtersContainer {
+        margin-top: 8rem;
+    }
+
+    .filterButton {
+        width: 20%;
+    }
+}

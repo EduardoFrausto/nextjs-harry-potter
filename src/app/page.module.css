@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 6rem;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .headerTitle {
@@ -15,12 +15,20 @@
 
 
 @media only screen and (min-width: 768px) {
+    .headerContainer {
+        gap: 1.5rem;
+    }
+
     .headerTitle {
         font-size: 27px;
     }
 }
 
 @media only screen and (min-width: 992px) {
+    .headerContainer {
+        gap: 2rem;
+    }
+
     .headerTitle {
         font-size: 36px;
     }
