@@ -2,8 +2,11 @@ import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {Character} from "@/models/character";
 import {httpClient} from "@/helpers/httpClient";
 import {RootState} from "@/redux/app/store";
+import {Houses} from "@/models/houses";
 
 interface CharacterSliceInitialState {
+    isOpenNewCharacterModal: boolean,
+
     fetchStaffCharacters: boolean
     fetchStudentsCharacters: boolean
 
@@ -16,9 +19,14 @@ interface CharacterSliceInitialState {
     loadingFavoriteCharacter: boolean
 
     loadingUpdateCharacter: boolean
+
+    loadingPostCharacter: boolean
+    characterAdded: boolean | null
 }
 
 const initialState: CharacterSliceInitialState = {
+    isOpenNewCharacterModal: false,
+
     fetchStaffCharacters: false,
     fetchStudentsCharacters: true,
 
@@ -31,6 +39,9 @@ const initialState: CharacterSliceInitialState = {
     loadingFavoriteCharacter: false,
 
     loadingUpdateCharacter: false,
+
+    loadingPostCharacter: false,
+    characterAdded: null
 };
 
 const characterSlice = createSlice({
@@ -44,6 +55,12 @@ const characterSlice = createSlice({
         setFetchStudentsCharacters: (state, action: PayloadAction<boolean>) => {
             state.fetchStudentsCharacters = action.payload
             state.fetchStaffCharacters = !action.payload
+        },
+        setIsOpenNewCharacterModal: (state, action: PayloadAction<boolean>) => {
+            state.isOpenNewCharacterModal = action.payload
+        },
+        setCharacterAdded: (state, action: PayloadAction<boolean | null>) => {
+            state.characterAdded = action.payload
         },
     },
     extraReducers: builder => {
@@ -109,6 +126,29 @@ const characterSlice = createSlice({
         })
         builder.addCase(updateCharacterFavoriteStatus.rejected, state => {
             state.loadingUpdateCharacter = false
+            alert('Ocurrió un error inesperado al actualizar el personaje')
+        })
+
+        builder.addCase(postNewCharacter.pending, state => {
+            state.loadingPostCharacter = true
+        })
+        builder.addCase(postNewCharacter.fulfilled, (state, action) => {
+            state.loadingPostCharacter = false
+            const payload = action.payload
+            if (payload) {
+                if (payload.hogwartsStaff && state.fetchStaffCharacters) {
+                    state.characters.push(payload)
+                    state.characterAdded = true
+                }
+                if (payload.hogwartsStudent && state.fetchStudentsCharacters) {
+                    state.characters.push(payload)
+                    state.characterAdded = true
+                }
+            }
+        })
+        builder.addCase(postNewCharacter.rejected, state => {
+            state.loadingPostCharacter = false
+            state.characterAdded = false
             alert('Ocurrió un error inesperado al actualizar el personaje')
         })
     },
@@ -177,9 +217,60 @@ const updateCharacterFavoriteStatus = createAsyncThunk(
     }
 )
 
+const postNewCharacter = createAsyncThunk(
+    'characterSlice/postNewCharacter',
+    async (data: {
+        name: string,
+        birthdate: string,
+        eyesColor: string,
+        hairColor: string,
+        gender: string,
+        position: 'staff' | 'student',
+        image: string
+    }) => {
+        try {
+            const character: Character = {
+                isFavorite: false,
+                actor: 'Actor',
+                alive: true,
+                ancestry: '?',
+                dateOfBirth: data.birthdate.split('-').reverse().join('-'),
+                eyeColour: data.eyesColor,
+                gender: data.gender,
+                hairColour: data.hairColor,
+                hogwartsStaff: data.position === 'staff',
+                hogwartsStudent: data.position === 'student',
+                house: Houses.Slytherin,
+                id: '.',
+                image: data.image,
+                name: data.name,
+                patronus: '',
+                species: 'human',
+                wand: {
+                    core: '',
+                    length: 1,
+                    wood: ''
+                },
+                yearOfBirth: +data.birthdate.split('-')[0]
+            }
+            const formData: any = {...character}
+            delete formData.id
+            const response = await httpClient.post<Character>(`/characters`, formData)
+            return response.data
+        } catch (e) {
+            return null
+        }
+    }
+)
 
-export const {setFetchStaffCharacters, setFetchStudentsCharacters} = characterSlice.actions;
+
+export const {
+    setFetchStaffCharacters,
+    setFetchStudentsCharacters,
+    setIsOpenNewCharacterModal,
+    setCharacterAdded,
+} = characterSlice.actions;
 
 export default characterSlice.reducer;
 
-export {getCharactersByPage, getFavoriteCharacters, updateCharacterFavoriteStatus};
+export {getCharactersByPage, getFavoriteCharacters, updateCharacterFavoriteStatus, postNewCharacter};

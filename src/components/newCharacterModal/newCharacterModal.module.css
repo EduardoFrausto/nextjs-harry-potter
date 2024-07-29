@@ -1,0 +1,123 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 3;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContainer {
+    background-color: white;
+    padding: 0.75rem;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.modalHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.5rem;
+}
+
+.formRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.appInput {
+    width: 100%;
+}
+
+.closeButton {
+    border: 0;
+    background-color: transparent;
+    padding: 0.25rem;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.radioButtonRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.fileButton {
+    border: 0;
+    background-color: transparent;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+.inputFile {
+    height: 0;
+    width: 0;
+}
+
+@media only screen and (min-width: 768px) {
+    .modalContainer {
+        padding: 1rem;
+        width: 80%;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .modalHeader {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .modalContainer {
+        padding: 1.5rem;
+        width: 60%;
+    }
+
+    .form {
+        gap: 1rem;
+    }
+
+    .formRow {
+        flex-direction: row;
+        gap: 3rem;
+    }
+
+    .title {
+        font-weight: 600;
+        font-size: 24px;
+    }
+
+    .modalHeader {
+        margin-bottom: 2rem;
+    }
+
+    .radioButtonRow {
+        gap: 2rem;
+    }
+}

@@ -5,7 +5,7 @@ import Image from "next/image";
 import favoritesIcon from '../../../public/svg/favorites.svg'
 import addUser from '../../../public/svg/addUser.svg'
 import {useAppDispatch, useAppSelector} from "@/redux/app/hooks";
-import {getFavoriteCharacters} from "@/redux/features/characterSlice";
+import {getFavoriteCharacters, setIsOpenNewCharacterModal} from "@/redux/features/characterSlice";
 import FavoriteCharacterListItem from "@/components/favoriteCharacterListItem/FavoriteCharacterListItem";
 
 const FavoritesMenu: FC = () => {
@@ -20,6 +20,7 @@ const FavoritesMenu: FC = () => {
     }, [dispatch])
 
     const toggleShowFavorites = () => setShowFavorites(prevState => !prevState)
+    const openNewCharacterModalHandler = () => dispatch(setIsOpenNewCharacterModal(true))
 
     return (
         <div className={styles.favoritesMenuContainer}>
@@ -40,7 +41,9 @@ const FavoritesMenu: FC = () => {
                 <button className={[styles.tabButton, styles.leftTabButton].join(' ')} onClick={toggleShowFavorites}>
                     Favoritos <Image src={favoritesIcon} alt={'Favorites icon'}/>
                 </button>
-                <button className={[styles.tabButton, styles.rightTabButton].join(' ')}>
+                <button
+                    className={[styles.tabButton, styles.rightTabButton].join(' ')}
+                    onClick={openNewCharacterModalHandler}>
                     Agregar <Image src={addUser} alt={'Add user icon'}/>
                 </button>
             </div>

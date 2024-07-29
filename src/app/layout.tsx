@@ -7,7 +7,7 @@ const openSans = Open_Sans({subsets: ["latin"]});
 
 export default function RootLayout({children,}: Readonly<{ children: React.ReactNode; }>) {
     return (
-        <html lang="en">
+        <html lang="en" id='htmlTag'>
         <body className={openSans.className}>
         <Providers>
             {children}

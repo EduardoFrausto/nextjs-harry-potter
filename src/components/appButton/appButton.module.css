@@ -4,6 +4,10 @@
     cursor: pointer;
 }
 
+.appButton:disabled {
+    opacity: 0.3;
+}
+
 .buttonInner, .buttonInnerActive {
     border-radius: 4px;
     width: 100%;

@@ -9,6 +9,7 @@ import {useAppDispatch} from "@/redux/app/hooks";
 import {getCharactersByPage} from "@/redux/features/characterSlice";
 import CharacterList from "@/components/charactersList/CharacterList";
 import FavoritesMenu from "@/components/favoritesMenu/FavoritesMenu";
+import NewCharacterModal from "@/components/newCharacterModal/NewCharacterModal";
 
 export default function Home() {
     const dispatch = useAppDispatch()
@@ -27,6 +28,7 @@ export default function Home() {
             <Filters/>
             <CharacterList/>
             <FavoritesMenu/>
+            <NewCharacterModal/>
         </main>
     );
 }

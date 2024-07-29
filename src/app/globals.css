@@ -2,6 +2,7 @@
     --white-text: white;
     --purple: rgba(107, 99, 181, 1);
     --dark-purple: rgba(64, 59, 109, 1);
+    --gray: rgba(38, 50, 56, 1);
 }
 
 * {
@@ -21,4 +22,34 @@ body {
     position: relative;
 }
 
+.overflow-hidden {
+    overflow-y: hidden;
+}
 
+.label {
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--gray);
+    margin-bottom: 0.5rem;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 11px;
+}
+
+@media only screen and (min-width: 768px) {
+    .label {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .label {
+        font-size: 14px;
+    }
+
+    .errorMessage {
+        font-size: 13px;
+    }
+}

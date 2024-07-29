@@ -1,0 +1,29 @@
+.radioButtonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.label {
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--gray);
+}
+
+@media only screen and (min-width: 768px) {
+    .label {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .label {
+        font-size: 16px;
+    }
+}
