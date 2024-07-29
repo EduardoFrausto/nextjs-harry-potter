@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Requisitos para ejecutar el proyecto
 
-## Getting Started
+- Node.js 18.17 o posterior
 
-First, run the development server:
+## Instalar dependencias
+Antes de iniciar el proyecto es necesario instalar las dependencias de node con el comando:
+```bash
+npm install
+```
+
+## Ejecutar el proyecto
+
+Primero es necesario iniciar el servidor json-server con el comando:
+
+```bash
+npm run start-server
+```
+
+Esto iniciara el servido en el puerto [3001](http://localhost:3001/characters) y configurado para cargar el contenido del archivo
+con los datos de los personajes
+
+Con el servidor json-server ya en ejecución es posible iniciar la aplicación de Next con cualquiera de los comandos
+estándar:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+La aplicación estará lista en la url [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Pruebas unitarias
+La aplicación utiliza jest para realizar las pruebas unitarias, se puede iniciar directamente con el siguiente comando:
+```bash
+npm run test
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## ¿Que más te gustó de tu desarrollo?
+El haber implementado los estilos para el diseño en escritorio y móvil sin librerías de css como bootstrap o tailwind css
+y la manera en que fui organizando los componentes para poderlos estar reutilizando a lo largo de la aplicación y no 
+tener archivos tan grandes de código.
 
-## Learn More
+## Si hubieras tenido más tiempo ¿qué hubieras mejorado o qué más hubieras hecho?
+Investigaría más acerca de los conceptos de testing. Es la primera vez que escribo pruebas unitarias para 
+los componentes y a pesar de conocer las bases de como se realizan estas pruebas, al ser la primera vez tuve 
+problemas para definir que aspectos someter a testing. 
 
-To learn more about Next.js, take a look at the following resources:
+También investigaría como agregar compatibilidad entre react-redux y jest, ya que por falta de conocimientos no pude
+configurar la integración de estas librerías lo que me impidió agregar pruebas a componentes que dependen de redux.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Descríbenos un pain point o bug con el que hayas encontrado y como lo solucionaste
+Durante el desarrollo me surgieron errores menores relacionados con css, como por ejemplo al querer crear el modal 
+mi intención desde un inicio era desactivar el scroll de la pantalla para que el modal quedase fijo en el centro,
+u otros errores relacionados con la librería de json-server al no conocerla previamente y suponer como funcionaría.
+Al final esos errores de css los resolví buscando en la documentación o en stackoverflow como poder realizar lo
+que quería en css.
+Para resolver los problemas cn json-server simplemente realice pruebas con Postman para conocer como se comportaba
+la librería.
